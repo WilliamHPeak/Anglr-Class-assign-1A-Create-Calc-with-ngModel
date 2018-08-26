@@ -1,20 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<p>{{date | date:'mediumDate'}}</p>
+<!-- piping to medium date display format -->
+<h3> William Peak, Interpoliation Exercise using ng Model </h3>
+
+<h4> Two Field Calculator </h4>
+
+<p>
+    <!--   we must use two way binding
+            1. [(ngModel)] = "source" is a two-way binding using NgModel directive.
+            2.  [(ngModel)] in HTML element where we set a specific element property
+                and listen for an element change event
+            3. We will use two-way binding with NgModel in text box in our example.
+                [(ngModel)] can set only data-bound property.
+            4. To use NgModel we need to import FormsModule and add it to imports
+               attribute of @NgModule in our module file.
+    -->
+    <input #numNg type="number" [(ngModel)]="a" (input)="0">
+    <!--         using a Reference variable here #ref to re-inforoce class lectured concempt-->
+    <input id="operatorNg" class="Center" (click)="resetOperator()" type="string" [(ngModel)]="operator" #operatorTmpRefType>
+    <input #numNg type="number" [(ngModel)]="b" (input)="0">
+</p>
+<table>
+    <tr>
+        <td>
+            <button id="btnngModel" type="button" (click)="calculate(operatorTmpRefType.value)">Calc</button>
+        </td>
+        <td> Results:
+        </td>
+        <td> <input class="form-control" type="test" placeholder="Enter value " [(ngModel)]="result">
+        </td>
+        <td> <input id="divideByZero" class="HideControl" type="test" placeholder="" [(ngModel)]="divideByZeroErrMsg">
+        </td>
+    </tr>
+</table>
